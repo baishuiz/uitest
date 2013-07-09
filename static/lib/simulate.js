@@ -4,71 +4,71 @@
  * @porter lifesinger@gmail.com
  *
  */
-(function() {
+(function () {
 
     // shortcuts
     var toString = Object.prototype.toString,
-        isFunction = function(o) {
+        isFunction = function (o) {
             return toString.call(o) === '[object Function]'
         },
-        isString = function(o) {
+        isString = function (o) {
             return toString.call(o) === '[object String]'
         },
-        isBoolean = function(o) {
+        isBoolean = function (o) {
             return toString.call(o) === '[object Boolean]'
         },
-        isObject = function(o) {
+        isObject = function (o) {
             return toString.call(o) === '[object Object]'
         },
-        isNumber = function(o) {
+        isNumber = function (o) {
             return toString.call(o) === '[object Number]'
         },
         doc = document,
 
-        mix = function(r, s) {
-            for(var p in s) r[p] = s[p];
+        mix = function (r, s) {
+            for (var p in s) r[p] = s[p];
         },
 
-        // mouse events supported
+    // mouse events supported
         mouseEvents = {
-            click:      1,
-            dblclick:   1,
-            mouseover:  1,
-            mouseout:   1,
+            click: 1,
+            dblclick: 1,
+            mouseover: 1,
+            mouseout: 1,
             mouseenter: 1,
             mouseleave: 1,
-            mousedown:  1,
-            mouseup:    1,
-            mousemove:  1
+            mousedown: 1,
+            mouseup: 1,
+            mousemove: 1
         },
 
-        // key events supported
+    // key events supported
         keyEvents = {
-            keydown:    1,
-            keyup:      1,
-            keypress:   1
+            keydown: 1,
+            keyup: 1,
+            keypress: 1
         },
 
-        // HTML events supported
+    // HTML events supported
         uiEvents = {
-            blur:       1,
-            change:     1,
-            focus:      1,
-            resize:     1,
-            scroll:     1,
-            select:     1
+            blur: 1,
+            change: 1,
+            focus: 1,
+            resize: 1,
+            scroll: 1,
+            select: 1
         },
 
-        // events that bubble by default
+    // events that bubble by default
         bubbleEvents = {
-            scroll:     1,
-            resize:     1,
-            reset:      1,
-            submit:     1,
-            change:     1,
-            select:     1,
-            error:      1,
-            abort:      1
+            scroll: 1,
+            resize: 1,
+            reset: 1,
+            submit: 1,
+            change: 1,
+            select: 1,
+            error: 1,
+            abort: 1
         };
 
     // all key and mouse events bubble
@@ -570,9 +570,9 @@
      * @method simulate
      * @static
      */
-    window.simulate = jasmine.simulate = function(target, type, options) {
-        if(type=="hashchange"){
-            location.hash=target;
+    window.simulate = jasmine.simulate = function (target, type, options) {
+        if (type == "hashchange") {
+            location.hash = target;
             return;
         }
         target = jQuery(target)[0];

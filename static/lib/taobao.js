@@ -7,7 +7,7 @@
     var $ = jQuery;
 
     jasmine.taobao = {
-        config:{}
+        config: {}
     };
     jasmine.taobao.slide = function (suite, container, options) {
         if (!suite || !(container = $(container)[0])) return;
@@ -74,16 +74,16 @@
 
             if (!line) {
                 line = jQuery('<div>').css({
-                    position:'absolute',
-                    border:'2px solid red',
-                    zIndex:9999
+                    position: 'absolute',
+                    border: '2px solid red',
+                    zIndex: 9999
                 }).appendTo('body');
             }
             line.css({
-                'left':offset.left,
-                'top':offset.top,
-                'width':width - 4,
-                'height':height - 4
+                'left': offset.left,
+                'top': offset.top,
+                'width': width - 4,
+                'height': height - 4
             });
         };
     })();
@@ -130,30 +130,30 @@
     jQuery.extend(jasmine.Matchers.prototype, {
 
         // Horizontal layout test.
-        toHorizontalEqual:function () {
+        toHorizontalEqual: function () {
             // console.log(this.actual);
             return equal(this.actual, ['top', 'height']);
         },
-        toHorizontalTopAlign:function () {
+        toHorizontalTopAlign: function () {
             return equal(this.actual, ['top']);
         },
-        toHorizontalBottomAlign:function () {
+        toHorizontalBottomAlign: function () {
             return equal(this.actual, ['top+height']);
         },
 
         // Vertical layout test.
-        toVerticalEqual:function () {
+        toVerticalEqual: function () {
             return equal(this.actual, ['left', 'width']);
         },
-        toVerticalLeftAlign:function () {
+        toVerticalLeftAlign: function () {
             return equal(this.actual, ['left']);
         },
-        toVerticalRightAlign:function () {
+        toVerticalRightAlign: function () {
             return equal(this.actual, ['left+width']);
         },
 
         // Prop test.
-        isCSSProp:function (prop, compare, val) {
+        isCSSProp: function (prop, compare, val) {
             var propVal = jQuery(this.actual).css(prop);
             if (/^\d+/.test(propVal)) {
                 propVal = parseInt(propVal, 10);
@@ -177,13 +177,13 @@
             return false;
         },
 
-        toEqualLayout:function (diff) {
+        toEqualLayout: function (diff) {
             var d = JSON.parse(this.actual);
             var failed = [];
 
             diff = diff || {};
             if (typeof diff === 'number') {
-                diff = {'width':diff, 'height':diff, 'left':diff, 'top':diff};
+                diff = {'width': diff, 'height': diff, 'left': diff, 'top': diff};
             }
 
             for (var selector in d) {
@@ -218,12 +218,12 @@
             var e = jQuery(el),
                 f = e.offset(), w = e.width(), h = e.height();
             data = {
-                'left':f.left,
-                'top':f.top,
-                'width':w,
-                'height':h,
-                'left+width':f.left + w,
-                'top+height':f.top + h
+                'left': f.left,
+                'top': f.top,
+                'width': w,
+                'height': h,
+                'left+width': f.left + w,
+                'top+height': f.top + h
             };
             jQuery.data(el, 'offset', data);
         }
@@ -302,10 +302,10 @@
         if (width === 0 || height === 0) return;
 
         return {
-            left:Math.ceil(offset.left - docWidth / 2),
-            top:offset.top,
-            width:width === docWidth ? '100%' : width,
-            height:height
+            left: Math.ceil(offset.left - docWidth / 2),
+            top: offset.top,
+            width: width === docWidth ? '100%' : width,
+            height: height
         };
     }
 
@@ -385,8 +385,8 @@
             '&full_redirect=false&redirect_url=' + encodeURI('http://www.' + domain2 + '/go/act/uitest/login.php');
 
         UT.setData({
-            username:username,
-            password:password
+            username: username,
+            password: password
         })
 
         var win = UT.open(src, function () {
@@ -406,7 +406,7 @@
                         var doc = document;
                         var safeInput = document.getElementById("J_SafeLoginCheck");
                         var quick = document.getElementById("J_Quick2Static");
-                        if (safeInput&&safeInput.checked){
+                        if (safeInput && safeInput.checked) {
                             safeInput.click();
                             safeInput.checked = false;
                         }
@@ -448,7 +448,7 @@
             '&full_redirect=false&redirect_url=' + encodeURI('http://www.' + domain2 + '/go/act/uitest/login.php');
 
         UT.setData({
-            src:'http://login.' + domain2 + '/member/logout.jhtml?f=top&t=' + (+new Date())
+            src: 'http://login.' + domain2 + '/member/logout.jhtml?f=top&t=' + (+new Date())
         })
 
 

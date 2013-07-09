@@ -2,27 +2,93 @@
 
 var path = require('path');
 var fs = require('fs');
+var program = require('commander');
 
-// Try to find a local install
 var dir = path.resolve(__dirname, '../lib');
+var constants = require(path.join(dir, 'constants'));
+var helper = require(path.join(dir, 'helper'));
 
-// Check if the local install exists else we use the install we are in
-//if (!fs.existsSync(dir)) {
-  //dir = path.join('..', 'lib');
-//}
+//tools
+var list = function (val) {
+    return val.split(',');
+};
 
-var cli = require(path.join(dir, 'cli'));
+var level = function (lv) {
+    return constant['LOG_' + lv.toUpperCase()] || constant.LOG_DISABLE;
+};
 
-var config = cli.process();
+var usage =
+    "\n"+
+    " _   _ ___ _____ _____ ____ _____\n"+
+    "| | | |_ _|_   _| ____/ ___|_   _|\n"+
+    "| | | || |  | | |  _| \\___ \\ | |\n"+
+    "| |_| || |  | | | |___ ___) || |\n"+
+    " \\___/|___| |_| |_____|____/ |_|";
 
-switch (config.cmd) {
-  case 'start':
-    require(path.join(dir, 'server')).start(config);
-    break;
-  case 'run':
-    require(path.join(dir, 'runner')).run(config);
-    break;
-  case 'init':
-    require(path.join(dir, 'init')).init(config);
-    break;
-}
+//program
+program
+    .usage(usage)
+    .version(constants.VERSION);
+
+program
+    .usage(usage)
+    .command('init')
+    .description('Initialize a config file')
+    .option('-l, --log-level', '<disable | error | warn | info | debug> Level of logging.', level)
+    .option('-c, --colors', 'Use colors when reporting and printing logs.')
+    .action(function (env) {
+        require(path.join(dir, 'init')).init(env);
+    });
+
+program
+    .usage(usage)
+    .command('start')
+    .description('Start the server / do a single run')
+    .option('-p, --port', 'Port where the web server is running.', parseInt)
+    .option('-P, --runner-port', 'Port where the server is listening for runner.', parseInt)
+    .option('-w, --auto-watch', 'Auto watch source files and run on change.')
+    .option('-l, --log-level', '<disable | error | warn | info | debug> Level of logging.', level)
+    .option('-c, --colors', 'Use colors when reporting and printing logs.')
+    .option('-r, --reporters', 'List of reporters (available: dots, progress, junit).', list)
+    .option('-b, --browsers', 'List of browsers to start (eg. --browsers Chrome,ChromeCanary,Firefox).', list)
+    .option('-t, --capture-timeout', 'Kill browser if does not capture in given time [ms].', parseInt)
+    .option('-s, --single-run', 'Run the test when browsers captured and exit.')
+    .option('-rt, --report-slower-than', 'Report tests that are slower than given time [ms].', parseInt)
+    .action(function (env) {
+        require(path.join(dir, 'server')).start(env);
+    });
+
+program
+    .usage(usage)
+    .command('run')
+    .description('Run the tests (requires running server)')
+    .option('-f, --file [file]', 'the test local or remote file you wanner run')
+    .option('-c, --html [file]', 'the html file you wanner run ')
+    .option('-r, --remote', 'run the tests by test center of taobao ')
+    .action(function (env) {
+        if (!env.file && !env.html && !env.url) {
+            console.log('too few arguments\nUse -h to see the usage');
+            process.exit(0);
+        }
+        require(path.join(dir, 'runner')).run(env);
+    });
+
+program
+    .usage(usage)
+    .command('plugin')
+    .description('print the plugin path')
+    .action(function () {
+        require(path.join(dir, 'plugin')).install();
+    });
+
+program
+    .usage(usage)
+    .command('*')
+    .description('deploy the given env')
+    .action(function (env) {
+        console.log('Unknown Command : "%s"\nUse -h to see the usage!', env);
+    });
+
+
+program.parse(process.argv);
+

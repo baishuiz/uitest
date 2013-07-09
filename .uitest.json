@@ -1,0 +1,4 @@
+{
+    "scripts": ["./test/open.js","./test/go.js"],
+    "emails":["bofei.zq@taobao.com","wb-shaohanchao@taobao.com"]
+}

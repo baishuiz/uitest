@@ -1,5 +1,6 @@
+node_modules
 tmp
-test
-docs
 TODO.md
-
+plugin/chrome/uitest
+plugin/ie/uitest
+.idea/

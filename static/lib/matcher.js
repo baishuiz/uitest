@@ -1,51 +1,51 @@
 UT.beforeEach(function () {
     var uiMatchers = {
-        toHaveClass:function (className) {
+        toHaveClass: function (className) {
             var nodeList = jQuery(this.actual);
             return nodeList.hasClass(className);
 
         },
-        toBeVisible:function () {
+        toBeVisible: function () {
             var nodeList = jQuery(this.actual);
-            if(nodeList.size() ==0) return false;
+            if (nodeList.size() == 0) return false;
             return nodeList.size() == nodeList.filter(':visible').size();
         },
 
-        toBeHidden:function () {
+        toBeHidden: function () {
 
             var nodeList = jQuery(this.actual);
-            if(nodeList.size() ==0) return false;
+            if (nodeList.size() == 0) return false;
             return nodeList.size() == nodeList.filter(':hidden').size();
         },
 
-        toBeSelected:function () {
+        toBeSelected: function () {
             var nodeList = jQuery(this.actual);
-            if(nodeList.size() ==0) return false;
+            if (nodeList.size() == 0) return false;
             return nodeList.filter(':selected').size() == nodeList.size();
         },
 
-        toBeChecked:function () {
+        toBeChecked: function () {
 
             var nodeList = jQuery(this.actual);
-            if(nodeList.size() ==0) return false;
+            if (nodeList.size() == 0) return false;
             return nodeList.filter(':checked').size() == nodeList.size();
         },
 
-        toBeEmpty:function () {
+        toBeEmpty: function () {
             var nodeList = jQuery(this.actual);
-            if(nodeList.size() ==0) return false;
+            if (nodeList.size() == 0) return false;
             return nodeList.filter(':empty').size() == nodeList.size();
 
         },
 
-        toExist:function () {
+        toExist: function () {
             var nodeList = jQuery(this.actual);
             return nodeList.size();
         },
 
-        toHaveAttr:function (attributeName, expectedAttributeValue) {
+        toHaveAttr: function (attributeName, expectedAttributeValue) {
             var nodeList = jQuery(this.actual);
-            if(nodeList.length==0)return false;
+            if (nodeList.length == 0)return false;
             var result = true;
 
             jQuery.each(nodeList, function (index, item) {
@@ -64,7 +64,7 @@ UT.beforeEach(function () {
 
         },
 
-        toHaveProp:function (propertyName, expectedPropertyValue) {
+        toHaveProp: function (propertyName, expectedPropertyValue) {
             var nodeList = jQuery(this.actual);
             var result = true;
             jQuery.each(nodeList, function (index, item) {
@@ -83,23 +83,23 @@ UT.beforeEach(function () {
 
         },
 
-        toHaveId:function (id) {
+        toHaveId: function (id) {
             var nodeList = jQuery(this.actual);
             return nodeList.attr('id') == id;
         },
 
-        toHaveHtml:function (html) {
+        toHaveHtml: function (html) {
             var nodeList = jQuery(this.actual);
             return jQuery.trim(nodeList.html()) == jQuery.trim(html);
         },
-        toContainHtml:function (html) {
+        toContainHtml: function (html) {
             var nodeList = jQuery(this.actual).first();
-            var allHtml = nodeList.html()||"";
+            var allHtml = nodeList.html() || "";
 
-            return allHtml.indexOf(html)!=-1;
+            return allHtml.indexOf(html) != -1;
         },
 
-        toHaveSameSubTree:function (html) {
+        toHaveSameSubTree: function (html) {
             var nodeList = jQuery(this.actual);
             var root = nodeList[0];
             if (!root) {
@@ -151,7 +151,7 @@ UT.beforeEach(function () {
 
         },
 
-        toHaveText:function (text) {
+        toHaveText: function (text) {
             var nodeList = jQuery(this.actual);
             var trimmedText = jQuery.trim(nodeList.text());
             if (text && jQuery.isFunction(text.test)) {
@@ -160,14 +160,14 @@ UT.beforeEach(function () {
                 return trimmedText == text;
             }
         },
-        toContainText:function (text) {
+        toContainText: function (text) {
             var nodeList = jQuery(this.actual);
-            var trimmedText = jQuery.trim(nodeList.text())||"";
+            var trimmedText = jQuery.trim(nodeList.text()) || "";
 
-            return trimmedText.indexOf(text)!=-1;
+            return trimmedText.indexOf(text) != -1;
         },
 
-        toHaveValue:function (value) {
+        toHaveValue: function (value) {
             var node = jQuery(this.actual).first();
 
 
@@ -175,25 +175,25 @@ UT.beforeEach(function () {
 
 
         },
-        toHaveChildren:function (selector, num) {
-            return jQuery(this.actual).children(selector).length==num;
+        toHaveChildren: function (selector, num) {
+            return jQuery(this.actual).children(selector).length == num;
         },
 
 
-        toBeDisabled:function (selector) {
+        toBeDisabled: function (selector) {
             var nodeList = jQuery(this.actual);
-            if(nodeList.size() ==0) return false;
+            if (nodeList.size() == 0) return false;
             return nodeList.filter(':disabled').size() == nodeList.size();
         },
 
-        toBeFocused:function (selector) {
+        toBeFocused: function (selector) {
             var nodeList = jQuery(this.actual);
-            if(nodeList.size() ==0) return false;
+            if (nodeList.size() == 0) return false;
 
             return nodeList.filter(':focus').size() == nodeList.size();
         },
 
-        toHaveComputedStyle:function (styleProp, expectValue) {
+        toHaveComputedStyle: function (styleProp, expectValue) {
 
             if (styleProp.match(/color/i)) {
                 var tempNode = $('<div></div>');
@@ -207,7 +207,7 @@ UT.beforeEach(function () {
 
 
         },
-        toHaveCSS:function (styleProp, expectValue) {
+        toHaveCSS: function (styleProp, expectValue) {
             if (styleProp.match(/color/i)) {
                 var tempNode = $('<div></div>');
                 $('body').append(tempNode);
@@ -220,11 +220,11 @@ UT.beforeEach(function () {
 
         },
 
-        atPosition:function (x, y, off, relativeEl) {
+        atPosition: function (x, y, off, relativeEl) {
             var tempOff = 0.1;
             var absX = Math.abs(x);
             var absY = Math.abs(y);
-            var referPosition = {top:0, left:0};
+            var referPosition = {top: 0, left: 0};
             if (arguments[2] && typeof arguments[2] == 'number') {
                 tempOff = arguments[2];
             }

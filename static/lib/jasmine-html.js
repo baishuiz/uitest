@@ -84,7 +84,6 @@ jasmine.HtmlReporter = function (_doc) {
     };
 
     self.reportRunnerResults = function (runner) {
-
         reporterView && reporterView.complete();
     };
 
@@ -146,16 +145,16 @@ jasmine.HtmlReporter = function (_doc) {
     }
 
     function createReporterDom(version) {
-        dom.reporter = self.createDom('div', { id:'HTMLReporter', className:'jasmine_reporter' },
-            dom.banner = self.createDom('div', { className:'banner' },
-                self.createDom('span', { className:'title' }, "Jasmine "),
-                self.createDom('span', { className:'version' }, version)),
+        dom.reporter = self.createDom('div', { id: 'HTMLReporter', className: 'jasmine_reporter' },
+            dom.banner = self.createDom('div', { className: 'banner' },
+                self.createDom('span', { className: 'title' }, "Jasmine "),
+                self.createDom('span', { className: 'version' }, version)),
 
-            dom.symbolSummary = self.createDom('ul', {className:'symbolSummary'}),
-            dom.alert = self.createDom('div', {className:'alert'}),
-            dom.results = self.createDom('div', {className:'results'},
-                dom.summary = self.createDom('div', { className:'summary' }),
-                dom.details = self.createDom('div', { id:'details' }))
+            dom.symbolSummary = self.createDom('ul', {className: 'symbolSummary'}),
+            dom.alert = self.createDom('div', {className: 'alert'}),
+            dom.results = self.createDom('div', {className: 'results'},
+                dom.summary = self.createDom('div', { className: 'summary' }),
+                dom.details = self.createDom('div', { id: 'details' }))
         );
     }
 };
@@ -170,10 +169,10 @@ jasmine.HtmlReporter.ReporterView = function (dom) {
     this.skippedCount = 0;
 
     this.createResultsMenu = function () {
-        this.resultsMenu = this.createDom('span', {className:'resultsMenu bar'},
-            this.summaryMenuItem = this.createDom('a', {className:'summaryMenuItem', href:"#"}, '0 specs'),
+        this.resultsMenu = this.createDom('span', {className: 'resultsMenu bar'},
+            this.summaryMenuItem = this.createDom('a', {className: 'summaryMenuItem', href: "#"}, '0 specs'),
             ' | ',
-            this.detailsMenuItem = this.createDom('a', {className:'detailsMenuItem', href:"#"}, '0 failing'));
+            this.detailsMenuItem = this.createDom('a', {className: 'detailsMenuItem', href: "#"}, '0 failing'));
 
         this.summaryMenuItem.onclick = function () {
             dom.reporter.className = dom.reporter.className.replace(/ showDetails/g, '');
@@ -188,8 +187,8 @@ jasmine.HtmlReporter.ReporterView = function (dom) {
         this.totalSpecCount = specs.length;
 
         this.views = {
-            specs :{},
-            suites:{}
+            specs: {},
+            suites: {}
         };
 
         for (var i = 0; i < specs.length; i++) {
@@ -247,14 +246,14 @@ jasmine.HtmlReporter.ReporterView = function (dom) {
 
         // currently running UI
         if (isUndefined(this.runningAlert)) {
-            this.runningAlert = this.createDom('a', {href:"?", className:"runningAlert bar"});
+            this.runningAlert = this.createDom('a', {href: "?", className: "runningAlert bar"});
             dom.alert.appendChild(this.runningAlert);
         }
         this.runningAlert.innerHTML = "Running " + this.completeSpecCount + " of " + specPluralizedFor(this.totalSpecCount);
 
         // skipped specs UI
         if (isUndefined(this.skippedAlert)) {
-            this.skippedAlert = this.createDom('a', {href:"?", className:"skippedAlert bar"});
+            this.skippedAlert = this.createDom('a', {href: "?", className: "skippedAlert bar"});
         }
 
         this.skippedAlert.innerHTML = "Skipping " + this.skippedCount + " of " + specPluralizedFor(this.totalSpecCount) + " - run all";
@@ -265,13 +264,13 @@ jasmine.HtmlReporter.ReporterView = function (dom) {
 
         // passing specs UI
         if (isUndefined(this.passedAlert)) {
-            this.passedAlert = this.createDom('span', {href:"?", className:"passingAlert bar"});
+            this.passedAlert = this.createDom('span', {href: "?", className: "passingAlert bar"});
         }
         this.passedAlert.innerHTML = "Passing " + specPluralizedFor(this.passedCount);
 
         // failing specs UI
         if (isUndefined(this.failedAlert)) {
-            this.failedAlert = this.createDom('span', {href:"?", className:"failingAlert bar"});
+            this.failedAlert = this.createDom('span', {href: "?", className: "failingAlert bar"});
         }
         this.failedAlert.innerHTML = "Failing " + specPluralizedFor(this.failedCount);
 
@@ -291,12 +290,12 @@ jasmine.HtmlReporter.ReporterView = function (dom) {
         this.skippedAlert.innerHTML = "Ran " + this.runningSpecCount + " of " + specPluralizedFor(this.totalSpecCount) + " - run all";
 
         if (this.failedCount === 0) {
-            dom.alert.appendChild(this.createDom('span', {className:'passingAlert bar'}, "Passing " + specPluralizedFor(this.passedCount)));
+            dom.alert.appendChild(this.createDom('span', {className: 'passingAlert bar'}, "Passing " + specPluralizedFor(this.passedCount)));
         } else {
             showDetails();
         }
 
-        dom.banner.appendChild(this.createDom('span', {className:'duration'}, "finished in " + ((new Date().getTime() - this.startedAt.getTime()) / 1000) + "s"));
+        dom.banner.appendChild(this.createDom('span', {className: 'duration'}, "finished in " + ((new Date().getTime() - this.startedAt.getTime()) / 1000) + "s"));
     };
 
     return this;
@@ -333,22 +332,22 @@ jasmine.HtmlReporter.SpecView = function (spec, dom, views) {
     this.dom = dom;
     this.views = views;
 
-    this.symbol = this.createDom('li', { className:'pending' });
+    this.symbol = this.createDom('li', { className: 'pending' });
     this.dom.symbolSummary.appendChild(this.symbol);
 
-    this.summary = this.createDom('div', { className:'specSummary' },
+    this.summary = this.createDom('div', { className: 'specSummary' },
         this.createDom('a', {
-            className:'description',
-            href     :'?spec=' + encodeURIComponent(this.spec.getFullName()),
-            title    :this.spec.getFullName()
+            className: 'description',
+            href: '?spec=' + encodeURIComponent(this.spec.getFullName()),
+            title: this.spec.getFullName()
         }, this.spec.description)
     );
 
-    this.detail = this.createDom('div', { className:'specDetail' },
+    this.detail = this.createDom('div', { className: 'specDetail' },
         this.createDom('a', {
-            className:'description',
-            href     :'?spec=' + encodeURIComponent(this.spec.getFullName()),
-            title    :this.spec.getFullName()
+            className: 'description',
+            href: '?spec=' + encodeURIComponent(this.spec.getFullName()),
+            title: this.spec.getFullName()
         }, this.spec.getFullName())
     );
 };
@@ -384,18 +383,18 @@ jasmine.HtmlReporter.SpecView.prototype.appendFailureDetail = function () {
     this.detail.className += ' ' + this.status();
 
     var resultItems = this.spec.results().getItems();
-    var messagesDiv = this.createDom('div', { className:'messages' });
+    var messagesDiv = this.createDom('div', { className: 'messages' });
 
     for (var i = 0; i < resultItems.length; i++) {
         var result = resultItems[i];
 
         if (result.type == 'log') {
-            messagesDiv.appendChild(this.createDom('div', {className:'resultMessage log'}, result.toString()));
+            messagesDiv.appendChild(this.createDom('div', {className: 'resultMessage log'}, result.toString()));
         } else if (result.type == 'expect' && result.passed && !result.passed()) {
-            messagesDiv.appendChild(this.createDom('div', {className:'resultMessage fail'}, result.message));
+            messagesDiv.appendChild(this.createDom('div', {className: 'resultMessage fail'}, result.message));
 
             if (result.trace.stack) {
-                messagesDiv.appendChild(this.createDom('div', {className:'stackTrace'}, result.trace.stack));
+                messagesDiv.appendChild(this.createDom('div', {className: 'stackTrace'}, result.trace.stack));
             }
         }
     }
@@ -412,8 +411,8 @@ jasmine.HtmlReporter.SuiteView = function (suite, dom, views) {
     this.dom = dom;
     this.views = views;
 
-    this.element = this.createDom('div', { className:'suite' },
-        this.createDom('a', { className:'description', href:'?spec=' + encodeURIComponent(this.suite.getFullName()) }, this.suite.description)
+    this.element = this.createDom('div', { className: 'suite' },
+        this.createDom('a', { className: 'description', href: '?spec=' + encodeURIComponent(this.suite.getFullName()) }, this.suite.description)
     );
 
     this.appendToSummary(this.suite, this.element);
@@ -433,47 +432,47 @@ jasmine.HtmlReporterHelpers.addHelpers(jasmine.HtmlReporter.SuiteView);
 jasmine.JsonReporter = function (callback) {
     var self = this;
     var toJSON = function (runner) {
-        var runnerJSON = {spies_:[]};
+        var runnerJSON = {spies_: []};
         var specs = runner.specs();
 
         for (var i = 0; i < specs.length; i++) {
             var results = specs[i].results_;
             var suite = {
-                id         :specs[i].suite.id,
-                description:specs[i].suite.description,
-                finished   :specs[i].suite.finished
+                id: specs[i].suite.id,
+                description: specs[i].suite.description,
+                finished: specs[i].suite.finished
             };
             var specJSON = {
-                description:specs[i].description,
-                id         :specs[i].id,
-                suite      :suite,
-                results_   :[]
+                description: specs[i].description,
+                id: specs[i].id,
+                suite: suite,
+                results_: []
             }
 
 
             var items = results.items_;
             var result = {
-                description:results.description,
-                items_     :[],
-                failedCount:results.failedCount,
-                passedCount:results.passedCount,
-                skipped    :results.skipped,
-                totalCount :results.totalCount
+                description: results.description,
+                items_: [],
+                failedCount: results.failedCount,
+                passedCount: results.passedCount,
+                skipped: results.skipped,
+                totalCount: results.totalCount
             }
 
             for (var k = 0; k < items.length; k++) {
                 var item = {
-                    actual     :jasmine.pp(items[k].actual),
-                    expected   :jasmine.pp(items[k].expected||''),
-                    matcherName:items[k].matcherName,
-                    message    :items[k].message,
-                    passed_    :items[k].passed_,
-                    type       :items[k].type
+                    actual: jasmine.pp(items[k].actual),
+                    expected: jasmine.pp(items[k].expected || ''),
+                    matcherName: items[k].matcherName,
+                    message: items[k].message,
+                    passed_: items[k].passed_,
+                    type: items[k].type
                 }
                 if (items[k].trace) {
                     item.trace = {
-                        stack:jasmine.pp(items[k].trace.stack),
-                        type :items[k].trace.type
+                        stack: jasmine.pp(items[k].trace.stack),
+                        type: items[k].trace.type
                     }
                 }
 
@@ -522,14 +521,13 @@ jasmine.JsonReporter = function (callback) {
             }
 
         }
-        var resultJSON = {'totalSpecs':len, 'failedSpecs':specsFailedCount, 'suites':suites};
-
+        var resultJSON = {'totalSpecs': len, 'failedSpecs': specsFailedCount, 'suites': suites};
 
 
         self.jsonResult = resultJSON;
 
         callback && callback(self.jsonResult);
-       
+
 
     };
 
@@ -544,13 +542,12 @@ jasmine.JsonReporter = function (callback) {
     self.reportSpecResults = function (spec) {
 
     };
-    self.renderHTML = function (resultJSON,el) {
+    self.renderHTML = function (resultJSON, el) {
 
-            for(var i=0;i<resultJSON.reports.errors.length;i++){
-                if(resultJSON.reports.errors[i].stack)
-                resultJSON.reports.errors[i].stack =resultJSON.reports.errors[i].stack.replace(/\r\n/g,"<br/>")
-            }
-
+        for (var i = 0; i < resultJSON.reports.errors.length; i++) {
+            if (resultJSON.reports.errors[i].stack)
+                resultJSON.reports.errors[i].stack = resultJSON.reports.errors[i].stack.replace(/\r\n/g, "<br/>")
+        }
 
 
         var template =
@@ -562,9 +559,9 @@ jasmine.JsonReporter = function (callback) {
                 '<div class="suite">' +
                 '<span class="suite-title">js错误：${error.message}</span>' +
                 '<div class="error-stack">${error.stack}</div>' +
-                '</div>'+
+                '</div>' +
                 '{{/each}}' +
-                '</div>'+
+                '</div>' +
                 '<div class="detail">{{each(index,suite) reports.suites}}' +
                 '<div class="suite">' +
                 '<span class="suite-title">${suite.description}</span>' +
@@ -591,7 +588,7 @@ jasmine.JsonReporter = function (callback) {
                 '{{/each}}' +
                 '</div>';
 
-        return  jQuery.tmpl(template,resultJSON).appendTo(el);
+        return  jQuery.tmpl(template, resultJSON).appendTo(el);
 
 
     }
