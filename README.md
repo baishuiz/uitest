@@ -71,6 +71,6 @@ $ uitest init -h
 
 ## 配置
 
-[浏览器配置](./docs/bowers.md)
-[常见错误QA](./docs/errors.md)
-[HTML类型配置](./docs/html.md)
+- [浏览器配置](./docs/browser.md)
+- [常见错误QA](./docs/errors.md)
+- [HTML类型配置](./docs/html.md)
