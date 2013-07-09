@@ -43,7 +43,8 @@ $ uitest run -r -f test.js
 目前支持的浏览有IE,Chrome,Firefox,Safari.
 
 ```shell
-# uitest init
+$ uitest init //windows
+$ sudo uitest init //*nix,mac
 ```
 
 uitest有进行ui和功能测试的时候需要操作生产环境的真实页面，所以需要浏览器插件的支持。可以通过以下命令进行插件半自动化安装。
@@ -59,7 +60,7 @@ $ uitest run -f test.js //本地文件，路径是本地路径，可以相对也
 $ uitest run -c xxx.html //直接运行html文件。
 ```
 
-** `--html`方式需要看下[这里](./docs/html.md) **
+**`--html`方式需要看下[这里](./docs/html.md)**
 
 # 如何编写测试用例
 [uitest-jasmine](https://github.com/uitest/uitest/wiki/API)
