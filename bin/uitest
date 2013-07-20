@@ -76,7 +76,7 @@ program
 program
     .usage(usage)
     .command('plugin')
-    .description('print the plugin path')
+    .description('auto install plugin')
     .action(function () {
         require(path.join(dir, 'plugin')).install();
     });
@@ -91,4 +91,3 @@ program
 
 
 program.parse(process.argv);
-

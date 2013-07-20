@@ -16,5 +16,3 @@ win.go("http://guang.taobao.com", function () {
         })
     })
 })
-
-

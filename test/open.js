@@ -6,6 +6,3 @@ var win = UT.open("http://www.taobao.com", function () {
         })
     })
 })
-
-
-

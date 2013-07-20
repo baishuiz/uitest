@@ -1,0 +1,9 @@
+Authors ordered by first contribution.
+https://github.com/kissyteam/kissy/contributors
+
+bofei <bofei.zq@taobao.com>
+yize <yize.shc@gmail.com>
+longgang <longgang@taobao.com>
+tafeng <tafeng@taobao.com>
+daolin <daolin@taobao.com>
+tangzhu <tangzhu.mc@taobao.com>
