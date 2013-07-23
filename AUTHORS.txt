@@ -1,5 +1,5 @@
 Authors ordered by first contribution.
-https://github.com/kissyteam/kissy/contributors
+https://github.com/uitest/uitest/contributors
 
 bofei <bofei.zq@taobao.com>
 yize <yize.shc@gmail.com>

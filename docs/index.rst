@@ -1,4 +1,4 @@
-.. _uitest: http://uitest.github.com
+.. _uitest: http://uitest.org
 .. _Firefox: http://www.mozilla.org/en-US/firefox/new/
 .. _Chrome: http://www.chromium.org/getting-involved/dev-channel
 .. _Safari: http://www.apple.com/safari/
