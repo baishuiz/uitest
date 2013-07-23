@@ -62,9 +62,9 @@ program
     .usage(usage)
     .command('run')
     .description('Run the tests (requires running server)')
+    .option('-r, --remote', 'run the tests by test center of taobao ')
     .option('-f, --file [file]', 'the test local or remote file you wanner run')
     .option('-c, --html [file]', 'the html file you wanner run ')
-    .option('-r, --remote', 'run the tests by test center of taobao ')
     .action(function (env) {
         if (!env.file && !env.html && !env.url) {
             console.log('too few arguments\nUse -h to see the usage');

@@ -254,5 +254,3 @@ extlinks = {
     'issue': ('https://github.com/uitest/uitest/issues/%s', '#'),
     'repo': ('https://github.com/uitest/uitest/%s', ''),
 }
-
-extensions = [ "sphinxtogithub" ]

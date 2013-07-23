@@ -68,22 +68,23 @@ Now we should tell uitest which browser can be used and other options see also :
 
 .. topic:: What did we just do?
 
-   1. we created a new file `uitest.conf.js` which used to save your configs
+   1. we created a new file `uitest.conf.js`
+   2. save your configs in the file
 
 .. index:: Windows
 
 Install browsers plugin
 -----------------------
 
-We use browsers plugins to inject our own scripts to the browser,and the script is locate at `{uitestDir}/static/uitest.js`
+We use browsers plugins to inject our own scripts to the browser,and the script locates at `{uitestDir}/static/uitest.js`
 
 .. code-block:: text
 
     $ uitest plugin
 
-use it to auto-install your plugins,there may be are some issues,you can find the plugin under {uitestDir/plugin},you can install them yourself;
+Use it to auto-install your plugins,there may be are some issues,you can find the plugin under {uitestDir/plugin},you can install them yourself;
 
-the chrome plugin can be downloaded here:`chrome store <https://chrome.google.com/webstore/detail/uitest-chrome-%E6%8F%92%E4%BB%B6/afgdnjlbpjonnjaeafdfkdoapmbogjco?hl=zh-CN&utm_source=chrome-ntp-launcher>`_
+The chrome plugin can be downloaded here:`chrome store <https://chrome.google.com/webstore/detail/uitest-chrome-%E6%8F%92%E4%BB%B6/afgdnjlbpjonnjaeafdfkdoapmbogjco?hl=zh-CN&utm_source=chrome-ntp-launcher>`_
 
 uitest on Windows
 -------------------
@@ -91,7 +92,9 @@ uitest on Windows
 Browsers Initialize additions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-we had met some issue on Windows,one was the ``PATH``, here is the solution:
+.. _init-path:
+
+We had met some issue on Windows , one was the ``PATH``, here is the solution:
 
 - Append ``";C:\Program Files\Google\Chrome\Application\chrome.exe"`` to your ``PATH`` environment variable.
 - Modify this path appropriately if you installed your browsers to a different location.
@@ -99,8 +102,11 @@ we had met some issue on Windows,one was the ``PATH``, here is the solution:
 .. warning::
 
     if you run the command:**uitest init** and press tab to select the browsers you wanner choose,and press enter.(you can choose muti-browsers)
+
     if you see the  warning :
+
     No binary for [your browser]
+
     then you need to set your PATH
 
 Known Bugs & Limitations

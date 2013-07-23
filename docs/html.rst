@@ -80,7 +80,7 @@ run it with ``uitest run --html example.html`` (**wrong** method,see warning bel
 
 .. warning::
 
-    It`s ``not correct`` if you see the above result,when you use ``--html`` method, you should know this details:
+    It`s ``not correct`` if you see the ``above`` result,when you use ``--html`` method, you should know this details:
 
     1. replace the jasmine native ``jasmine-html.js`` to our `jasmine-html.js <https://github.com/uitest/uitest/blob/master/client/to3party/jasmine-html.js>`_
 

@@ -15,6 +15,8 @@ if you have **not** install uitest , please read :doc:`installation <installatio
 
 The `uitest` command has four available command:
 
+.. _cli-init:
+
 .. index:: init
 
 init
@@ -54,6 +56,7 @@ Example:
     ``-r, --remote`` command requires a test server center (we call it utserver)
 
 .. index:: start
+
 start
 -----
 
@@ -71,6 +74,8 @@ Example:
 
 
 .. index:: plugin install
+
+.. _cli-plugin:
 
 plugin
 ------

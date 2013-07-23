@@ -29,8 +29,9 @@ Example:
 ``waitsMatchers(func,timeout)``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**func**: ``Function`` you can write all your test scripts inside this callback function
-**timeout**: ``Number`` you can write all your test scripts inside this callback function
+**func** ``Function`` you can write all your test scripts inside this callback function
+
+**timeout** ``Number`` you can write all your test scripts inside this callback function
 
 UI test maybe a lot of async exec , jasmine can not be able to fit our requirements
 

@@ -26,7 +26,7 @@ Error:browser_process_failure
 
 .. index:: listen,port,eaddrinuse,error
 
-warn - error raised: Error: listen EADDRINUSE
+Warn - error raised: Error: listen EADDRINUSE
 ---------------------------------------------
 
 This error occurs because your port has been used,use :
@@ -39,7 +39,7 @@ and find the node uitest progress , and use `kill -9 {progressId}` to kill it.
 
 .. index:: ie,https
 
-ie ：SEC7111: HTTPS security is compromised by http://localhost:8080/static/uitest.js
+IE ：SEC7111: HTTPS security is compromised by http://localhost:8080/static/uitest.js
 ---------------------------------------------------------------------------------------
 
 `http://blogs.msdn.com/b/ieinternals/archive/2009/06/22/https-mixed-content-in-ie8.aspx?PageIndex=7 <http://blogs.msdn.com/b/ieinternals/archive/2009/06/22/https-mixed-content-in-ie8.aspx?PageIndex=7>`_

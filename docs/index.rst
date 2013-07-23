@@ -1,3 +1,9 @@
+.. _uitest: http://uitest.github.com
+.. _Firefox: http://www.mozilla.org/en-US/firefox/new/
+.. _Chrome: http://www.chromium.org/getting-involved/dev-channel
+.. _Safari: http://www.apple.com/safari/
+.. _IE: http://windows.microsoft.com/en-us/internet-explorer/download-ie
+
 ======================
 uitest documentation
 ======================
@@ -28,9 +34,3 @@ Community
 
 - `get the code <https://github.com/uitest/uitest>`_
 - check out `the ecosystem <https://github.com/uitest>`_
-
-.. _uitest: http://uitest.github.com
-.. _Firefox: http://www.mozilla.org/en-US/firefox/new/
-.. _Chrome: http://www.chromium.org/getting-involved/dev-channel
-.. _Safari: http://www.apple.com/safari/
-.. _IE: http://windows.microsoft.com/en-us/internet-explorer/download-ie
