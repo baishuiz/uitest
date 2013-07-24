@@ -7,6 +7,7 @@ var program = require('commander');
 var dir = path.resolve(__dirname, '../lib');
 var constants = require(path.join(dir, 'constants'));
 var helper = require(path.join(dir, 'helper'));
+var logger = require(path.join(dir, 'logger')).create('bin');
 
 //tools
 var list = function (val) {
@@ -18,12 +19,12 @@ var level = function (lv) {
 };
 
 var usage =
-    "\n"+
-    " _   _ ___ _____ _____ ____ _____\n"+
-    "| | | |_ _|_   _| ____/ ___|_   _|\n"+
-    "| | | || |  | | |  _| \\___ \\ | |\n"+
-    "| |_| || |  | | | |___ ___) || |\n"+
-    " \\___/|___| |_| |_____|____/ |_|";
+    "\n" +
+        " _   _ ___ _____ _____ ____ _____\n" +
+        "| | | |_ _|_   _| ____/ ___|_   _|\n" +
+        "| | | || |  | | |  _| \\___ \\ | |\n" +
+        "| |_| || |  | | | |___ ___) || |\n" +
+        " \\___/|___| |_| |_____|____/ |_|";
 
 //program
 program
@@ -62,14 +63,23 @@ program
     .usage(usage)
     .command('run')
     .description('Run the tests (requires running server)')
-    .option('-r, --remote', 'run the tests by test center of taobao ')
-    .option('-f, --file [file]', 'the test local or remote file you wanner run')
-    .option('-c, --html [file]', 'the html file you wanner run ')
+    .option('-m, --mutiRun', 'Run the test when browsers captured and exit')
+    .option('-r, --remote', 'Run the tests by test center of taobao ')
+    .option('-f, --file [file]', 'The test local or remote file you wanner run')
+    .option('-c, --html [file]', 'The html file you wanner run ')
     .action(function (env) {
+
+        logger.debug('mutiRun:%s', env['mutiRun']);
+
         if (!env.file && !env.html && !env.url) {
             console.log('too few arguments\nUse -h to see the usage');
             process.exit(0);
         }
+
+        if (env.mutiRun) {
+            env.singleRun = false;
+        }
+
         require(path.join(dir, 'runner')).run(env);
     });
 

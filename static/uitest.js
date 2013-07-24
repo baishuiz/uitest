@@ -76,6 +76,8 @@
         var varname = '_ut_json_report';
 
         var id = stamp[1];
+
+
         getScript("http://localhost:8080/socket.io/socket.io.js", function () {
             if (!etaoStamp) {
 
