@@ -2746,18 +2746,31 @@
 
     //共享数据API
 
+	UT._ut_data_ = {};
+
+	var mixData = function(data){
+		for(var p in data){
+			if(data.hasOwnProperty(i)){
+				 UT._ut_data_[p] = data[p];
+			}
+		}
+	};
 
     UT.setData = function (data) {
-        if (UT._socket)UT._socket.emit("set_data", data)
-    }
+	    UT._ut_data_ = data
+//	    mixData(data);
+//        if (UT._socket)UT._socket.emit("set_data", data)
+    };
+
     UT.getData = function (fun) {
-        if (UT._socket) {
-            UT._socket.emit("get_data");
-            UT._socket.once("push_data", function (data) {
-                fun && fun(data);
-            })
-        }
-    }
+	    fun && fun(UT._ut_data_);
+//        if (UT._socket) {
+//            UT._socket.emit("get_data");
+//            UT._socket.once("push_data", function (data) {
+//                fun && fun(data);
+//            })
+//        }
+    };
 
     window.UT = UT;
 

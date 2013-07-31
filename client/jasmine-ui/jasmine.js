@@ -2747,25 +2747,9 @@
         jasmineEnv.addReporter(jsonReporter);
         jasmineEnv.execute();
 
-    }
-
+    };
 
     //共享数据API
-
-
-    UT.setData = function (data) {
-        if (UT._socket)UT._socket.emit("set_data", data)
-    }
-    UT.getData = function (fun) {
-        if (UT._socket) {
-            UT._socket.emit("get_data");
-            UT._socket.once("push_data", function (data) {
-                fun && fun(data);
-            })
-        }
-    }
-
     window.UT = UT;
-
-
+    
 })();

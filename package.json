@@ -1,33 +1,36 @@
 {
-    "bin": {
-        "uitest": "./bin/uitest"
-    },
-    "engines": {
-        "node": ">= 0.8.4"
-    },
-    "name": "uitest",
-    "repository": {
-        "url": "http://gitlab.alibaba-inc.com/uitest/uitest.git",
-        "type": "git"
-    },
-    "author": "伯飞 <bofei.zq@taobao.com>",
-    "contributors": ["伊泽 <wb-shaohanchao@taobao.com>"],
-    "bugs": {
-        "url": "http://gitlab.alibaba-inc.com/uitest/uitest/issues"
-    },
-    "preferGlobal": true,
-    "dependencies": {
-        "socket.io-client": "0.9.11",
-        "lodash": "~0.9.1",
-        "http-proxy": ">=0.8.2",
-        "glob": ">=3.1.14",
-        "colors": "~0.6.0-1",
-        "commander": "~1.1.1",
-        "socket.io": ">= 0.9.0",
-        "rimraf": ">= 2.0.2",
-        "log4js": "~0.5.6"
-    },
-    "version": "0.4.2",
-    "homepage": "http://gitlab.alibaba-inc.com/uitest/uitest",
-    "description": "\u57fa\u4e8enodejs\u7684\u524d\u7aefUI\u6d4b\u8bd5\u6846\u67b6"
+  "bin": {
+    "uitest": "./bin/uitest"
+  },
+  "engines": {
+    "node": ">= 0.8.4"
+  },
+  "name": "uitest",
+  "repository": {
+    "url": "http://gitlab.alibaba-inc.com/uitest/uitest.git",
+    "type": "git"
+  },
+  "author": "伯飞 <bofei.zq@taobao.com>",
+  "contributors": [
+    "伊泽 <wb-shaohanchao@taobao.com>"
+  ],
+  "bugs": {
+    "url": "http://gitlab.alibaba-inc.com/uitest/uitest/issues"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "socket.io-client": "0.9.11",
+    "lodash": "~0.9.1",
+    "http-proxy": ">=0.8.2",
+    "glob": ">=3.1.14",
+    "colors": "~0.6.0-1",
+    "commander": "~1.1.1",
+    "socket.io": ">= 0.9.0",
+    "rimraf": ">= 2.0.2",
+    "log4js": "~0.5.6",
+    "uglify-js": "~2.3.6"
+  },
+  "version": "0.4.2",
+  "homepage": "http://gitlab.alibaba-inc.com/uitest/uitest",
+  "description": "基于nodejs的前端UI测试框架"
 }

@@ -6,19 +6,19 @@
         var src = 'http://login.' + domain2 + '/member/login.jhtml?from=buy' +
             '&full_redirect=false&redirect_url=' + encodeURI('http://www.' + domain2 + '/go/act/uitest/login.php');
 
-        UT.setData({
-            username:username,
-            password:password
-        })
+//        UT.setData({
+//            username:username,
+//            password:password
+//        })
 
         var win = UT.open(src, function () {
             describe("登录", function () {
                 it("获取数据并提交登录", function () {
                     var info;
-                    getData(function (data) {
-                        console.log(data);
-                        info = data;
-                    });
+//                    getData(function (data) {
+//                        console.log(data);
+//                        info = data;
+//                    });
                     waitsMatchers(function () {
                         expect(info).toBeDefined();
                     });
@@ -68,9 +68,9 @@
         var src = 'http://login.' + domain2 + '/member/login.jhtml?style=minisimple&from=buy' +
             '&full_redirect=false&redirect_url=' + encodeURI('http://www.' + domain2 + '/go/act/uitest/login.php');
 
-        UT.setData({
-            src:'http://login.' + domain2 + '/member/logout.jhtml?f=top&t=' + (+new Date())
-        })
+//        UT.setData({
+//            src:'http://login.' + domain2 + '/member/logout.jhtml?f=top&t=' + (+new Date())
+//        })
 
 
         UT.open(src, function () {
