@@ -2758,18 +2758,10 @@
 
     UT.setData = function (data) {
 	    UT._ut_data_ = data
-//	    mixData(data);
-//        if (UT._socket)UT._socket.emit("set_data", data)
     };
 
-    UT.getData = function (fun) {
-	    fun && fun(UT._ut_data_);
-//        if (UT._socket) {
-//            UT._socket.emit("get_data");
-//            UT._socket.once("push_data", function (data) {
-//                fun && fun(data);
-//            })
-//        }
+    UT.getData = function () {
+	    return UT._ut_data_;
     };
 
     window.UT = UT;

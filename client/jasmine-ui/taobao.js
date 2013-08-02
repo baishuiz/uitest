@@ -6,19 +6,17 @@
         var src = 'http://login.' + domain2 + '/member/login.jhtml?from=buy' +
             '&full_redirect=false&redirect_url=' + encodeURI('http://www.' + domain2 + '/go/act/uitest/login.php');
 
-//        UT.setData({
-//            username:username,
-//            password:password
-//        })
+        UT.setData({
+            username:username,
+            password:password
+        })
 
         var win = UT.open(src, function () {
             describe("登录", function () {
                 it("获取数据并提交登录", function () {
-                    var info;
-//                    getData(function (data) {
-//                        console.log(data);
-//                        info = data;
-//                    });
+
+                    var info = UT.getData();
+
                     waitsMatchers(function () {
                         expect(info).toBeDefined();
                     });
@@ -76,10 +74,7 @@
         UT.open(src, function () {
             describe("淘宝帐号登出", function () {
                 it("测试淘宝帐号登出", function () {
-                    var info;
-                    UT.getData(function (data) {
-                        info = data;
-                    });
+                    var info = UT.getData();
 
                     waitsMatchers(function () {
 

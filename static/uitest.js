@@ -1,8 +1,4 @@
 (function (args, func, d) {
-	try {
-		window.UT.setData(d);
-	} catch (e) {}
-	console.log(arguments);
 	function getScript(url, callback) {
 		var script = document.createElement("script");
 		script.type = "text/javascript";
@@ -72,7 +68,9 @@
 				if (window.confirm)window.confirm = function () {
 					return true
 				};
-				console.log(func);
+
+				window.UT.setData(d);
+
 				with (window.UT) {
 					eval(func);
 				}
@@ -94,7 +92,7 @@
 						result.totalErrors = result.errors.length;
 						result.url = location.href;
 					}
-					var data = window.UT._ut_data_;
+					var data = window.UT.getData();
 					args && args({result: result, data: data});
 //                    socket.emit('complete', result);
 				});
