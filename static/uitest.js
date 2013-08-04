@@ -1,4 +1,27 @@
-(function (args, func, d) {
+(function (cb, func, id, d) {
+
+	window.UT = {};
+	//共享数据API
+
+	UT.ut_data_ = {};
+
+	var mixData = function (data) {
+
+		for (var p in data) {
+			if (data.hasOwnProperty(p)) {
+				UT.ut_data_[p] = data[p];
+			}
+		}
+	};
+
+	UT.setData = function (data) {
+		mixData(data);
+	};
+
+	UT.getData = function () {
+		return UT.ut_data_;
+	};
+
 	function getScript(url, callback) {
 		var script = document.createElement("script");
 		script.type = "text/javascript";
@@ -19,7 +42,7 @@
 		document.body.appendChild(script)
 	}
 
-	function getScripts(srcs, cb) {
+	function getScripts(srcs, callback) {
 		var i = 0, l = srcs.length;
 		var f = function () {
 			getScript(srcs[i], function () {
@@ -27,7 +50,7 @@
 
 				if (i == l) {
 
-					cb && cb();
+					callback && callback();
 				}
 				else {
 					f();
@@ -37,14 +60,12 @@
 		f();
 	}
 
-	//避免iframe
-
-	var stamp = location.href.match(/_ut_=(\d*)/) || window.name.match(/_ut_=(\d*)/);
+//	var stamp = location.href.match(/_ut_=(\d*)/) || window.name.match(/_ut_=(\d*)/);
 
 	var etaoStamp = location.href.indexOf('jstest') != -1;
 
 	//使用window.name来保存id信息。window.name页面刷新后不会改变
-	window.name = stamp[0];
+//	window.name = stamp[0];
 
 	var varname = '_ut_json_report';
 
@@ -69,12 +90,11 @@
 					return true
 				};
 
-				window.UT.setData(d);
+				UT.setData(JSON.parse(d));
 
 				with (window.UT) {
 					eval(func);
 				}
-
 			} catch (e) {
 				console.log(e);
 				error = {};
@@ -92,9 +112,15 @@
 						result.totalErrors = result.errors.length;
 						result.url = location.href;
 					}
-					var data = window.UT.getData();
-					args && args({result: result, data: data});
-//                    socket.emit('complete', result);
+
+					var data = UT.getData();
+
+					cb && cb({
+						result : result,
+						data   : data,
+						browser: {fullName: window.navigator.userAgent}
+					});
+
 				});
 			}
 		})
@@ -111,4 +137,4 @@
 
 		// show reports();
 	}
-})(arguments[arguments.length - 1], '{{func}}', '{{data}}');
+})(arguments[arguments.length - 1], '{{func}}', '{{id}}', '{{data}}');
