@@ -1,26 +1,5 @@
 (function (cb, func, id, d) {
 
-	window.UT = {};
-	//共享数据API
-
-	UT.ut_data_ = {};
-
-	var mixData = function (data) {
-
-		for (var p in data) {
-			if (data.hasOwnProperty(p)) {
-				UT.ut_data_[p] = data[p];
-			}
-		}
-	};
-
-	UT.setData = function (data) {
-		mixData(data);
-	};
-
-	UT.getData = function () {
-		return UT.ut_data_;
-	};
 
 	function getScript(url, callback) {
 		var script = document.createElement("script");
@@ -101,7 +80,6 @@
 				error.message = e.message;
 				error.type = e.type;
 				error.stack = e.stack;
-
 			}
 			finally {
 				UT.execute(function (result) {

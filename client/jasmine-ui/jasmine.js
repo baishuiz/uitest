@@ -1,5 +1,7 @@
 (function () {
 
+	var UT = {};
+
     var isCommonJS = typeof window == "undefined";
 
     /**
@@ -2745,5 +2747,28 @@
         jasmineEnv.execute();
 
     };
+
+	window.UT = UT;
+	//共享数据API
+
+	UT.ut_data_ = {};
+
+	var mixData = function (data) {
+
+		for (var p in data) {
+			if (data.hasOwnProperty(p)) {
+				UT.ut_data_[p] = data[p];
+			}
+		}
+	};
+
+	UT.setData = function (data) {
+		mixData(data);
+	};
+
+	UT.getData = function () {
+		return UT.ut_data_;
+	};
+
 
 })();
