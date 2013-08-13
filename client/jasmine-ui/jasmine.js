@@ -489,7 +489,7 @@
         return jasmine.getEnv().currentSpec.spyOn(obj, methodName);
     };
     if (isCommonJS) exports.spyOn = spyOn;
-    // window.spyOn = spyOn;
+    window.spyOn = spyOn;
     UT.spyOn = spyOn;
 
     /**
@@ -509,7 +509,7 @@
         return jasmine.getEnv().it(desc, func);
     };
     if (isCommonJS) exports.it = it;
-    //  window.it = it;
+     window.it = it;
     UT.it = it;
 
     /**
@@ -524,7 +524,7 @@
         return jasmine.getEnv().xit(desc, func);
     };
     if (isCommonJS) exports.xit = xit;
-    // window.xit = xit;
+    window.xit = xit;
     UT.xit = xit;
 
     /**
@@ -539,7 +539,7 @@
         return jasmine.getEnv().currentSpec.expect(actual);
     };
     if (isCommonJS) exports.expect = expect;
-    // window.expect = expect;
+    window.expect = expect;
     UT.expect = expect;
 
     /**
@@ -548,7 +548,7 @@
         return jasmine.getEnv().currentSpec.waitsMatchers(matchersFunc, timeout);
     };
     if (isCommonJS) exports.waitsMatchers = waitsMatchers;
-    //window.waitsMatchers = waitsMatchers;
+    window.waitsMatchers = waitsMatchers;
     UT.waitsMatchers = waitsMatchers;
     UT.waitsMathers = waitsMatchers;
     /**
@@ -560,7 +560,7 @@
         jasmine.getEnv().currentSpec.runs(func);
     };
     if (isCommonJS) exports.runs = runs;
-    // window.runs = runs;
+    window.runs = runs;
     UT.runs = runs;
 
     /**
@@ -592,7 +592,7 @@
         jasmine.getEnv().currentSpec.waitsFor.apply(jasmine.getEnv().currentSpec, arguments);
     };
     if (isCommonJS) exports.waitsFor = waitsFor;
-    // window.waitsFor = waitsFor;
+     window.waitsFor = waitsFor;
     UT.waitsFor = waitsFor;
 
     /**
@@ -610,7 +610,7 @@
         jasmine.getEnv().beforeEach(beforeEachFunction);
     };
     if (isCommonJS) exports.beforeEach = beforeEach;
-    // window.beforeEach = beforeEach;
+     window.beforeEach = beforeEach;
     UT.beforeEach = beforeEach;
 
     /**
@@ -625,7 +625,7 @@
         jasmine.getEnv().afterEach(afterEachFunction);
     };
     if (isCommonJS) exports.afterEach = afterEach;
-    // window.afterEach = afterEach;
+     window.afterEach = afterEach;
     UT.afterEach = afterEach;
     /**
      * Defines a suite of specifications.
@@ -646,7 +646,7 @@
         return jasmine.getEnv().describe(description, specDefinitions);
     };
     if (isCommonJS) exports.describe = describe;
-    // window.describe = describe;
+    window.describe = describe;
     UT.describe = describe;
     /**
      * Disables a suite of specifications.  Used to disable some suites in a file, or files, temporarily during development.
@@ -658,7 +658,7 @@
         return jasmine.getEnv().xdescribe(description, specDefinitions);
     };
     if (isCommonJS) exports.xdescribe = xdescribe;
-    // window.xdescribe = xdescribe;
+    window.xdescribe = xdescribe;
     UT.xdescribe = xdescribe;
 
 // Provide the XMLHttpRequest class for IE 5.x-6.x:
