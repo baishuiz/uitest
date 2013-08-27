@@ -125,18 +125,18 @@
     }
 
 
-    var execute = function () {
+    var position = function () {
         var result = {}
 
 
-        var all = $(":visible");
+        var all = $(":visible", document.body);
         all.each(function (index, el) {
             var path = toPath(el);
 
 
-            var offset = el.offset();
-            var width = el.width();
-            var height = el.height();
+            var offset = $(el).offset();
+            var width = $(el).width();
+            var height = $(el).height();
 
             result[path] = {
                 left: offset.left,
@@ -153,10 +153,38 @@
 
     }
 
-    scope.execute = execute;
+
+    var contrastBrowers = function (browers, offset) {
+        var results = {}
+        offset = offset || 0;
+        var length = browers.length;
+        var base = browers[0];
+
+        for (var i = 1; i < browers.length; i++) {
+             var target = browers[i];
+
+            for(var s in base){
+                if(target[s]){
+                    var baseValue = base[s];
+                    var targetValue = target[s];
+
+                    for(var p in baseValue){
+                        if
+
+                    }
 
 
 
+
+                }
+
+
+            }
+
+        }
+    }
+
+    scope.position = position;
 
 
 })(window.layoutTest);
