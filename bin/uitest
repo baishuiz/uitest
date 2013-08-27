@@ -129,7 +129,6 @@ program
 	.option('-structure_file, --structure_file <file>', '结果structure文件')
 	.option('-app_path, --app_path <path>', '存放路径')
 	.option('-browsers, --browsers <browsers>', '浏览器')
-	.option('-f, --file <file>', '文件')
 	.action(function (env) {
 		require(path.join(dir, 'kelude')).run(env);
 	});
